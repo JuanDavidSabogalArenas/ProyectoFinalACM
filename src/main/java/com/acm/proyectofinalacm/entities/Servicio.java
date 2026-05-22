@@ -17,4 +17,13 @@ public class Servicio {
     private Long id;
     private String descripcion;
     private double precio;
+
+
+    @ManyToOne
+    @JoinColumn(name="reserva_id")
+    private Reserva reserva;
+
+    @ManyToOne
+    @JoinColumn(name="sucursal_id")
+    private Sucursal sucursal;
 }

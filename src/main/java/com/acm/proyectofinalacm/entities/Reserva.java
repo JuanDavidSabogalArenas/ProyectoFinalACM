@@ -1,6 +1,7 @@
 package com.acm.proyectofinalacm.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -33,5 +34,6 @@ public class Reserva {
     private Usuario usuario;
 
     @OneToMany(mappedBy = "reserva",cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Servicio> servicios;
 }

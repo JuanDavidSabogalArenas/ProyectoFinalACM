@@ -21,4 +21,8 @@ public class Empleado {
     private String telefono;
     private String correo;
     private String rol;
+
+    @ManyToOne
+    @JoinColumn(name="sucursal_id")
+    private Sucursal sucursal;
 }

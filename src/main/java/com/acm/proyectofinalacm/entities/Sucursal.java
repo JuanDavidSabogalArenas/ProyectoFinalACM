@@ -1,6 +1,7 @@
 package com.acm.proyectofinalacm.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -29,9 +30,11 @@ public class Sucursal {
     private Hotel hotel;
 
     @OneToMany(mappedBy = "sucursal", cascade=CascadeType.ALL)
+    @JsonIgnore
     private List<Habitacion> habitaciones;
 
     @OneToMany(mappedBy = "sucursal",cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Empleado> empleados;
 
     @OneToOne(cascade=CascadeType.ALL)
@@ -39,6 +42,7 @@ public class Sucursal {
     private Administrador administrador;
 
     @OneToMany(mappedBy = "sucursal", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Servicio> servicios;
 
 }

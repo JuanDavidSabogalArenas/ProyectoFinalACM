@@ -1,6 +1,7 @@
 package com.acm.proyectofinalacm.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,11 +17,12 @@ import java.util.List;
 public class TipoHabitacion {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     private String descripcion;
     private int capacidad;
 
-    @OneToMany(mappedBy = "tipo_habitacion",cascade=CascadeType.ALL)
+    @OneToMany(mappedBy="tipoHabitacion",cascade=CascadeType.ALL)
+    @JsonIgnore
     private List<SucursalTipoH> sucursal_tipoh;
 
 }
